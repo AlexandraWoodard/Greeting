@@ -11,6 +11,25 @@ name = input("Enter your first and last name ")
 
 print(f'Hello {name}! Welcome to the program! Thank you for your time.')
 
+# Ask the user's preferred name
+
+nickname = input("Do you have a different name that you would like me to use? (Y/N) ")
+
+nickname = nickname.lower().strip()
+
+while True: 
+    if nickname == "y":
+        updated_name = input("What name would you like me to use? ")
+        break
+    elif nickname == "n":
+        print("Ok, I will use your full name.")
+        break
+    else:
+        print("You have not chosen between the options Y or N")
+        print(" ")
+        nickname = input("Do you have a different name that you would like me to use? (Y/N)")
+        nickname = nickname.lower().strip()
+    
 # Ask about the weather 
 
 weather = input("How is the weather today? [Sunny/Cloudy/Rainy/Snowy/Other] ")
@@ -44,4 +63,8 @@ while True:
         weather = input("How is the weather today? [Sunny/Cloudy/Rainy/Snowy] ")
         weather = weather.lower().strip()
 
-print("Thank you for telling me about the weather today.")
+if nickname == "y":
+    print(f'Thank you for telling me about the weather today, {updated_name}.')
+else:
+    print(f'Thank you for telling me about the weather today, {name}.')
+
